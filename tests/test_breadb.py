@@ -37,6 +37,9 @@ class MiniDatabaseTests(unittest.TestCase):
             users.insert({"active": True})
         with self.assertRaises(ValueError):
             users.insert({"id": 0, "name": "No"})
+        users.insert({"id": 5, "name": "Unique"})
+        with self.assertRaises(ValueError):
+            users.insert({"id": 5, "name": "Duplicate"})
 
 
 if __name__ == "__main__":

@@ -23,6 +23,8 @@ class Table:
         else:
             if not isinstance(record["id"], int) or record["id"] < 1:
                 raise ValueError("id must be a positive integer")
+            if any(row["id"] == record["id"] for row in self.rows):
+                raise ValueError("row id already exists")
         self._next_id = max(self._next_id, record["id"] + 1)
         self.rows.append(record)
         return deepcopy(record)
@@ -111,4 +113,3 @@ class MiniDatabase:
 # Friendly aliases for a small, straightforward public API.
 Database = MiniDatabase
 MiniDB = MiniDatabase
-
