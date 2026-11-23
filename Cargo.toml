@@ -1,6 +1,22 @@
+[package]
+name = "breadb"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+breadb-core.workspace = true
+
 [workspace]
 resolver = "3"
 members = [
+  ".",
   "crates/breadb-catalog",
   "crates/breadb-cli",
   "crates/breadb-core",
@@ -12,6 +28,7 @@ members = [
   "crates/breadb-wal",
 ]
 default-members = [
+  ".",
   "crates/breadb-catalog",
   "crates/breadb-cli",
   "crates/breadb-core",
@@ -31,6 +48,10 @@ authors = ["jny0444"]
 license = "MIT"
 repository = "https://github.com/jny0444/breadb"
 
+[workspace.lints.rust]
+
+[workspace.lints.clippy]
+
 [workspace.dependencies]
 breadb-catalog = { path = "crates/breadb-catalog" }
 breadb-cli = { path = "crates/breadb-cli" }
@@ -41,3 +62,20 @@ breadb-planner = { path = "crates/breadb-planner" }
 breadb-storage = { path = "crates/breadb-storage" }
 breadb-txn = { path = "crates/breadb-txn" }
 breadb-wal = { path = "crates/breadb-wal" }
+
+thiserror = "2.0.21"
+anyhow = "1.0.104"
+tracing = "0.1.44"
+tracing-subscriber = "0.3.23"
+
+bytes = "1.12.2"
+byteorder = "1.5.0"
+crc32fast = "1.5.5"
+
+parking_lot = "0.13.0"
+
+rustyline = "19.0.0"
+tempfile = "3.27.0"
+
+[profile.dev]
+opt-leve = 1
