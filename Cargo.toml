@@ -13,6 +13,10 @@ workspace = true
 [dependencies]
 breadb-core.workspace = true
 
+[dev-dependencies]
+breadb-storage.workspace = true
+tempfile.workspace = true
+
 [workspace]
 resolver = "3"
 members = [

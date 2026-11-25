@@ -11,3 +11,9 @@ repository.workspace = true
 workspace = true
 
 [dependencies]
+breadb-core.workspace = true
+byteorder.workspace = true
+parking_lot.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true
